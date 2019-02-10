@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R语言数据科学入门</title>
+  <meta name="description" content="An open-source and fully-reproducible electronic textbook bridging the gap between traditional introductory statistics and data science courses.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="R语言数据科学入门" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://moderndive.com/" />
+  <meta property="og:image" content="https://moderndive.com/images/logos/book_cover.png" />
+  <meta property="og:description" content="An open-source and fully-reproducible electronic textbook bridging the gap between traditional introductory statistics and data science courses." />
+  <meta name="github-repo" content="moderndive/moderndive_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R语言数据科学入门" />
+  
+  <meta name="twitter:description" content="An open-source and fully-reproducible electronic textbook bridging the gap between traditional introductory statistics and data science courses." />
+  <meta name="twitter:image" content="https://moderndive.com/images/logos/book_cover.png" />
+
+<meta name="author" content="Chester Ismay and Albert Y. Kim">
+
+
+<meta name="date" content="2018-07-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/logos/favicons/apple-touch-icon.png">
+  <link rel="shortcut icon" href="images/logos/favicons/favicon.ico" type="image/x-icon">
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-89938436-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path=""><a href="#intro"><i class="fa fa-check"></i><b>1</b> 介绍</a><ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#sec:intro-for-students"><i class="fa fa-check"></i><b>1.1</b> 新手入门介绍</a><ul>
+<li class="chapter" data-level="1.1.1" data-path=""><a href="#subsec:learning-goals"><i class="fa fa-check"></i><b>1.1.1</b> 你将在这本书学到的内容包括</a></li>
+<li class="chapter" data-level="1.1.2" data-path=""><a href="#subsec:pipeline"><i class="fa fa-check"></i><b>1.1.2</b> 数据科学 管道</a></li>
+<li class="chapter" data-level="1.1.3" data-path=""><a href="#subsec:reproducible"><i class="fa fa-check"></i><b>1.1.3</b> 可重复性研究</a></li>
+<li class="chapter" data-level="1.1.4" data-path=""><a href="#section-1.1.4"><i class="fa fa-check"></i><b>1.1.4</b> 给学生的最后建议</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#sec:intro-instructors"><i class="fa fa-check"></i><b>1.2</b> 给讲师的介绍</a><ul>
+<li class="chapter" data-level="1.2.1" data-path=""><a href="#section-1.2.1"><i class="fa fa-check"></i><b>1.2.1</b> 这本书适合谁?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path=""><a href="#datacamp"><i class="fa fa-check"></i><b>1.3</b> DataCamp</a></li>
+<li class="chapter" data-level="1.4" data-path=""><a href="#sec:connect-contribute"><i class="fa fa-check"></i><b>1.4</b> 联系与贡献</a></li>
+<li class="chapter" data-level="1.5" data-path=""><a href="#sec:about-book"><i class="fa fa-check"></i><b>1.5</b> 关于这本书</a></li>
+<li class="chapter" data-level="1.6" data-path=""><a href="#sec:about-authors"><i class="fa fa-check"></i><b>1.6</b> 关于作者</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R语言数据科学入门</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<html>
+<img src='https://moderndive.com/images/logos/wide_format.png' alt="ModernDive">
+</html>
+<div id="header">
+<h1 class="title">R语言数据科学入门</h1>
+<p class="author"><em>Chester Ismay and Albert Y. Kim</em></p>
+<p class="date"><em>July 21, 2018</em></p>
+</div>
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">1</span> 介绍</h1>
+<p><img src="https://cran.r-project.org/Rlogo.svg" alt="Drawing" style="height: 150px;"/>
+     
+<img src="https://www.rstudio.com/wp-content/uploads/2014/07/RStudio-Logo-Blue-Gradient.png" alt="Drawing" style="height: 150px;"/></p>
+<p><strong>我是新手，不会写代买。但我想学习R语言，我应该如何开始？</strong>
+如果你有这个疑问的话你就来对地方了！</p>
+<hr />
+<div id="sec:intro-for-students" class="section level2">
+<h2><span class="header-section-number">1.1</span> 新手入门介绍</h2>
+<p>本书没有背景知识要求。不需要线性代数，不需要微积分，也不需要会编程。本书是介绍数据科学家，统计学家，数据新闻记者和其他研究人员对数据分析实践的入门介绍。</p>
+<p>在图<a href="#fig:moderndive-figure">1.1</a> 中，概括了本书的内容。首先在第二章 <a href="#getting-started"><strong>??</strong></a>中，会介绍R软件，R studio软件。学习什么是R package。并且会探索第一个数据集：2013年所有从纽约市起飞的国内航班。</p>
+<ol style="list-style-type: decimal">
+<li><strong>数据科学</strong>: 你将开始组装你的数据科学工具箱 <code>tidyverse</code> packages. 包括:
+<ul>
+<li>Ch.<a href="#viz"><strong>??</strong></a>: 使用 <code>ggplot2</code> package 做数据图示化.</li>
+<li>Ch.<a href="#tidy"><strong>??</strong></a>: 明白 “tidy” 数据的概念 ，他是如何作为 <code>tidyverse</code> packages 的统一的数据输入格式</li>
+<li>Ch.<a href="#wrangling"><strong>??</strong></a>: 使用 <code>dplyr</code> package 整理数据</li>
+</ul></li>
+<li><strong>数据建模</strong>: 使用<code>moderndive</code> package中的数据科学工具, 你将开始进行数据建模. 包括:
+<ul>
+<li>Ch.<a href="#regression"><strong>??</strong></a>: 建立基本回归模型.</li>
+<li>Ch.<a href="#multiple-regression"><strong>??</strong></a>: 建立多元回归模型</li>
+</ul></li>
+<li><strong>统计推断</strong>: 当你熟悉的一些数据科学的工具后, 我们将学习 <code>infer</code> package 来学习统计推断. In particular:
+<ul>
+<li>Ch.<a href="#sampling"><strong>??</strong></a>: 通过模拟从碗里抽样，去了解统计推断中的样本变异性</li>
+<li>Ch.<a href="#confidence-intervals"><strong>??</strong></a>: 建立置信区间</li>
+<li>Ch.<a href="#hypothesis-testing"><strong>??</strong></a>: 进行假设检验</li>
+</ul></li>
+<li><strong>回顾数据建模</strong>: 有了统计推断的知识后，我们再次回顾之前建立的数据模型：
+<ul>
+<li>Ch.<a href="#inference-for-regression"><strong>??</strong></a>: 解读这些模型结果的统计含义和应用。本章的最后将探讨什么叫‘数据思维’并分享一个西雅图房价分析的案例</li>
+</ul></li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:moderndive-figure"></span>
+<img src="images/flowcharts/flowchart/flowchart.002.png" alt="ModernDive Flowchart" width="\textwidth" />
+<p class="caption">
+Figure 1.1: ModernDive Flowchart
+</p>
+</div>
+<div id="subsec:learning-goals" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> 你将在这本书学到的内容包括</h3>
+<ol style="list-style-type: decimal">
+<li>如何使用R 去了解数据.<br />
+</li>
+<li>如何运用置信区间和假设检验去回答统计学问题</li>
+<li>如何有效的运用R 工具去写‘数据故事’</li>
+</ol>
+<p>什么是数据故事？就是通过数据分析并使用数据可视化，统计结论去回答读者的问题。例如，
+<a href="http://rpubs.com/ry_lisa_elana/chicago">在芝加哥，人均收入与犯罪的关系有多大?</a> 和 <a href="https://ismayc.github.io/soc301_s2017/group_projects/group4.html">昆廷·塔伦蒂诺导演多少次在电影中使用脏话)?</a>. 更多关于数据故事的内容可以到这篇文章了解 <a href="https://www.thinkwithgoogle.com/marketing-resources/data-measurement/tell-meaningful-stories-with-data/">与谷歌一同思考</a>.</p>
+<p>For other examples of data stories constructed by students like yourselves, look at the final projects for two courses that have previously used ModernDive:</p>
+<ul>
+<li>Middlebury College <a href="https://rudeboybert.github.io/MATH116/PS/final_project/final_project_outline.html#past_examples">MATH 116 Introduction to Statistical and Data Sciences</a> using student collected data.</li>
+<li>Pacific University <a href="https://ismayc.github.io/soc301_s2017/group-projects/index.html">SOC 301 Social Statistics</a> using data from the <a href="https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html">fivethirtyeight R package</a>.</li>
+</ul>
+<p>This book will help you develop your “data science toolbox”, including tools such as data visualization, data formatting, data wrangling, and data modeling using regression. With these tools, you’ll be able to perform the entirety of the “data/science pipeline” while building data communication skills (see Subsection <a href="#subsec:pipeline">1.1.2</a> for more details).</p>
+<p>In particular, this book will lean heavily on data visualization. In today’s world, we are bombarded with graphics that attempt to convey ideas. We will explore what makes a good graphic and what the standard ways are to convey relationships with data. You’ll also see the use of visualization to introduce concepts like mean, median, standard deviation, distributions, etc. In general, we’ll use visualization as a way of building almost all of the ideas in this book.</p>
+<p>To impart the statistical lessons in this book, we have intentionally minimized the number of mathematical formulas used and instead have focused on developing a conceptual understanding via data visualization, statistical computing, and simulations. We hope this is a more intuitive experience than the way statistics has traditionally been taught in the past and how it is commonly perceived.</p>
+<p>Finally, you’ll learn the importance of literate programming. By this we mean you’ll learn how to write code that is useful not just for a computer to execute but also for readers to understand exactly what your analysis is doing and how you did it. This is part of a greater effort to encourage reproducible research (see Subsection <a href="#subsec:reproducible">1.1.3</a> for more details). Hal Abelson coined the phrase that we will follow throughout this book:</p>
+<blockquote>
+<p>“Programs must be written for people to read, and only incidentally for machines to execute.”</p>
+</blockquote>
+<p>We understand that there may be challenging moments as you learn to program. Both of us continue to struggle and find ourselves often using web searches to find answers and reach out to colleagues for help. In the long run though, we all can solve problems faster and more elegantly via programming. We wrote this book as our way to help you get started and you should know that there is a huge community of R users that are always happy to help everyone along as well. This community exists in particular on the internet on various forums and websites such as <a href="https://stackoverflow.com/">stackoverflow.com</a>.</p>
+</div>
+<div id="subsec:pipeline" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> 数据科学 管道</h3>
+<p>You may think of statistics as just being a bunch of numbers. We commonly hear the phrase “statistician” when listening to broadcasts of sporting events. Statistics (in particular, data analysis), in addition to describing numbers like with baseball batting averages, plays a vital role in all of the sciences. You’ll commonly hear the phrase “statistically significant” thrown around in the media. You’ll see articles that say “Science now shows that chocolate is good for you.” Underpinning these claims is data analysis. By the end of this book, you’ll be able to better understand whether these claims should be trusted or whether we should be wary. Inside data analysis are many sub-fields that we will discuss throughout this book (though not necessarily in this order):</p>
+<ul>
+<li>数据收集</li>
+<li>数据整理</li>
+<li>数据可视化</li>
+<li>数据模型</li>
+<li>推断</li>
+<li>相关性与回归分析</li>
+<li>统计结果的解读</li>
+<li>数据沟通/数据故事</li>
+</ul>
+<p>These sub-fields are summarized in what Grolemund and Wickham term the <a href="http://r4ds.had.co.nz/explore-intro.html">“Data/Science Pipeline”</a> in Figure <a href="#fig:pipeline-figure">1.2</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:pipeline-figure"></span>
+<img src="images/tidy1.png" alt="Data/Science Pipeline" width="\textwidth" />
+<p class="caption">
+Figure 1.2: Data/Science Pipeline
+</p>
+</div>
+<p>We will begin by digging into the gray <strong>Understand</strong> portion of the cycle with data visualization, then with a discussion on what is meant by tidy data and data wrangling, and then conclude by talking about interpreting and discussing the results of our models via <strong>Communication</strong>. These steps are vital to any statistical analysis. But why should you care about statistics? “Why did they make me take this class?”</p>
+<p>There’s a reason so many fields require a statistics course. Scientific knowledge grows through an understanding of statistical significance and data analysis. You needn’t be intimidated by statistics. It’s not the beast that it used to be and, paired with computation, you’ll see how reproducible research in the sciences particularly increases scientific knowledge.</p>
+</div>
+<div id="subsec:reproducible" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> 可重复性研究</h3>
+<blockquote>
+<p>“The most important tool is the <em>mindset</em>, when starting, that the end product will be reproducible.” – Keith Baggerly</p>
+</blockquote>
+<p>Another goal of this book is to help readers understand the importance of reproducible analyses. The hope is to get readers into the habit of making their analyses reproducible from the very beginning. This means we’ll be trying to help you build new habits. This will take practice and be difficult at times. You’ll see just why it is so important for you to keep track of your code and well-document it to help yourself later and any potential collaborators as well.</p>
+<p>Copying and pasting results from one program into a word processor is not the way that efficient and effective scientific research is conducted. It’s much more important for time to be spent on data collection and data analysis and not on copying and pasting plots back and forth across a variety of programs.</p>
+<p>In a traditional analyses if an error was made with the original data, we’d need to step through the entire process again: recreate the plots and copy and paste all of the new plots and our statistical analysis into your document. This is error prone and a frustrating use of time. We’ll see how to use R Markdown to get away from this tedious activity so that we can spend more time doing science.</p>
+<blockquote>
+<p>“We are talking about <em>computational</em> reproducibility.” - Yihui Xie</p>
+</blockquote>
+<p>Reproducibility means a lot of things in terms of different scientific fields. Are experiments conducted in a way that another researcher could follow the steps and get similar results? In this book, we will focus on what is known as <strong>computational reproducibility</strong>. This refers to being able to pass all of one’s data analysis, data-sets, and conclusions to someone else and have them get exactly the same results on their machine. This allows for time to be spent interpreting results and considering assumptions instead of the more error prone way of starting from scratch or following a list of steps that may be different from machine to machine.</p>
+<!--
+Additionally, this book will focus on computational thinking, data thinking, and inferential thinking. We'll see throughout the book how these three modes of thinking can build effective ways to work with, to describe, and to convey statistical knowledge.  
+-->
+</div>
+<div id="section-1.1.4" class="section level3">
+<h3><span class="header-section-number">1.1.4</span> 给学生的最后建议</h3>
+<p>At this point, if you are interested in instructor perspectives on this book, ways to contribute and collaborate, or the technical details of this book’s construction and publishing, then continue with the rest of the chapter below. Otherwise, let’s get started with R and RStudio in Chapter <a href="#getting-started"><strong>??</strong></a>!</p>
+<hr />
+</div>
+</div>
+<div id="sec:intro-instructors" class="section level2">
+<h2><span class="header-section-number">1.2</span> 给讲师的介绍</h2>
+<p>This book is inspired by the following books:</p>
+<ul>
+<li>“Mathematical Statistics with Resampling and R” <span class="citation">(Chihara and Hesterberg 2011)</span>,</li>
+<li>“OpenIntro: Intro Stat with Randomization and Simulation” <span class="citation">(Diez, Barr, and Çetinkaya-Rundel 2014)</span>, and</li>
+<li>“R for Data Science” <span class="citation">(Grolemund and Wickham 2016)</span>.</li>
+</ul>
+<p>The first book, while designed for upper-level undergraduates and graduate students, provides an excellent resource on how to use resampling to impart statistical concepts like sampling distributions using computation instead of large-sample approximations and other mathematical formulas. The last two books are free options to learning introductory statistics and data science, providing an alternative to the many traditionally expensive introductory statistics textbooks.</p>
+<p>When looking over the large number of introductory statistics textbooks that currently exist, we found that there wasn’t one that incorporated many newly developed R packages directly into the text, in particular the many packages included in the <a href="http://tidyverse.org/"><code>tidyverse</code></a> collection of packages, such as <code>ggplot2</code>, <code>dplyr</code>, <code>tidyr</code>, and <code>broom</code>. Additionally, there wasn’t an open-source and easily reproducible textbook available that exposed new learners all of three of the learning goals listed at the outset of Subsection <a href="#subsec:learning-goals">1.1.1</a>.</p>
+<div id="section-1.2.1" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> 这本书适合谁?</h3>
+<p>This book is intended for instructors of traditional introductory statistics classes using RStudio, either the desktop or server version, who would like to inject more data science topics into their syllabus. We assume that students taking the class will have no prior algebra, calculus, nor programming/coding experience.</p>
+<p>Here are some principles and beliefs we kept in mind while writing this text. If you agree with them, this might be the book for you.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Blur the lines between lecture and lab</strong>
+<ul>
+<li>With increased availability and accessibility of laptops and open-source non-proprietary statistical software, the strict dichotomy between lab and lecture can be loosened.</li>
+<li>It’s much harder for students to understand the importance of using software if they only use it once a week or less. They forget the syntax in much the same way someone learning a foreign language forgets the rules. Frequent reinforcement is key.</li>
+</ul></li>
+<li><strong>Focus on the entire data/science research pipeline</strong>
+<ul>
+<li>We believe that the entirety of Grolemund and Wickham’s <a href="http://r4ds.had.co.nz/introduction.html">data/science pipeline</a> should be taught.</li>
+<li>We believe in <a href="https://arxiv.org/abs/1507.05346">“minimizing prerequisites to research”</a>: students should be answering questions with data as soon as possible.</li>
+</ul></li>
+<li><strong>It’s all about the data</strong>
+<ul>
+<li>We leverage R packages for rich, real, and realistic data-sets that at the same time are easy-to-load into R, such as the <code>nycflights13</code> and <code>fivethirtyeight</code> packages.</li>
+<li>We believe that <a href="http://escholarship.org/uc/item/84v3774z">data visualization is a gateway drug for statistics</a> and that the Grammar of Graphics as implemented in the <code>ggplot2</code> package is the best way to impart such lessons. However, we often hear: “You can’t teach <code>ggplot2</code> for data visualization in intro stats!” We, like <a href="http://varianceexplained.org/r/teach_ggplot2_to_beginners/">David Robinson</a>, are much more optimistic.</li>
+<li><code>dplyr</code> has made data wrangling much more <a href="http://chance.amstat.org/2015/04/setting-the-stage/">accessible</a> to novices, and hence much more interesting data-sets can be explored.</li>
+</ul></li>
+<li><strong>Use simulation/resampling to introduce statistical inference, not probability/mathematical formulas</strong>
+<ul>
+<li>Instead of using formulas, large-sample approximations, and probability tables, we teach statistical concepts using resampling-based inference.</li>
+<li>This allows for a de-emphasis of traditional probability topics, freeing up room in the syllabus for other topics.</li>
+</ul></li>
+<li><strong>Don’t fence off students from the computation pool, throw them in!</strong>
+<ul>
+<li>Computing skills are essential to working with data in the 21st century. Given this fact, we feel that to shield students from computing is to ultimately do them a disservice.</li>
+<li>We are not teaching a course on coding/programming per se, but rather just enough of the computational and algorithmic thinking necessary for data analysis.</li>
+</ul></li>
+<li><strong>Complete reproducibility and customizability</strong>
+<ul>
+<li>We are frustrated when textbooks give examples, but not the source code and the data itself. We give you the source code for all examples as well as the whole book!</li>
+<li>Ultimately the best textbook is one you’ve written yourself. You know best your audience, their background, and their priorities. You know best your own style and the types of examples and problems you like best. Customization is the ultimate end. For more about how to make this book your own, see <a href="#about-book">About this Book</a>.</li>
+</ul></li>
+</ol>
+<hr />
+</div>
+</div>
+<div id="datacamp" class="section level2">
+<h2><span class="header-section-number">1.3</span> DataCamp</h2>
+<p><img src="images/datacamp.png" /></p>
+<p>DataCamp is a browser-based interactive platform for learning data science, offering courses on a wide array of courses on data science, analytics, statistics, machine learning, and artificial intelligence, where each course is a combination of lectures and exercises that offer immediate feedback.</p>
+<p>The following chapters of ModernDive roughly map to the following closely-integrated DataCamp courses that use the same R tools and often even the same datasets. By no means is this an exhaustive list of possible DataCamp courses that are relevant to the topics in this book, we recommend these ones in particular to supplement your ModernDive experience.</p>
+<p>Click on the image for each course to access its webpage on <a href="https://www.datacamp.com/home">datacamp.com</a>. Instructors at accredited universities can sign their class up for a free academic licence at <a href="https://www.datacamp.com/groups/education">DataCamp For The Classroom</a>, giving their students access to all premium courses for 6 months for free.</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Chapter</th>
+<th align="left">Topic</th>
+<th align="left">DataCamp Courses</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2</td>
+<td align="left">Basic R programming concepts</td>
+<td align="left"><a target="_blank" class="page-link" href="https://www.datacamp.com/courses/free-introduction-to-r"><img src="images/datacamp_intro_to_R.png" alt="Drawing" style="height: 150px;"/></a> <a target="_blank" class="page-link" href="https://www.datacamp.com/courses/intermediate-r"><img src="images/datacamp_intermediate_R.png" alt="Drawing" style="height: 150px;"/></a></td>
+</tr>
+<tr class="even">
+<td align="left">3 &amp; 5</td>
+<td align="left">Introductory data visualization and wrangling</td>
+<td align="left"><a target="_blank" class="page-link" href="https://www.datacamp.com/courses/introduction-to-the-tidyverse"><img src="images/datacamp_intro_to_tidyverse.png" alt="Drawing" style="height: 150px;"/></a></td>
+</tr>
+<tr class="odd">
+<td align="left">4 &amp; 5</td>
+<td align="left">Data “tidying” and intermediate data wrangling</td>
+<td align="left"><a target="_blank" class="page-link" href="https://www.datacamp.com/courses/working-with-data-in-the-tidyverse"><img src="images/datacamp_working_with_data.png" alt="Drawing" style="height: 150px;"/></a></td>
+</tr>
+<tr class="even">
+<td align="left">6 &amp; 7</td>
+<td align="left">Data modelling, basic regression, and multiple regression</td>
+<td align="left"><a target="_blank" class="page-link" href="https://www.datacamp.com/courses/modeling-with-data-in-the-tidyverse"><img src="images/datacamp_intro_to_modeling.png" alt="Drawing" style="height: 150px;"/></a></td>
+</tr>
+<tr class="odd">
+<td align="left">9 &amp; 10</td>
+<td align="left">Statistical inference: confidence intervals and hypothesis testing</td>
+<td align="left"><a target="_blank" class="page-link" href="https://www.datacamp.com/courses/inference-for-numerical-data"><img src="images/datacamp_inference_for_numerical_data.png" alt="Drawing" style="height: 150px;"/></a> <a target="_blank" class="page-link" href="https://www.datacamp.com/courses/inference-for-categorical-data"><img src="images/datacamp_inference_for_categorical_data.png" alt="Drawing" style="height: 150px;"/></a></td>
+</tr>
+<tr class="even">
+<td align="left">11</td>
+<td align="left">Inference for regression</td>
+<td align="left"><a target="_blank" class="page-link" href="https://www.datacamp.com/courses/inference-for-linear-regression"><img src="images/datacamp_inference_for_regression.png" alt="Drawing" style="height: 150px;"/></a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="sec:connect-contribute" class="section level2">
+<h2><span class="header-section-number">1.4</span> 联系与贡献</h2>
+<p>If you would like to connect with ModernDive, check out the following links:</p>
+<ul>
+<li>If you would like to receive periodic updates about ModernDive (roughly every 3 months), please sign up for our <a href="http://eepurl.com/cBkItf">mailing list</a>.</li>
+<li>Contact Albert at <a href="mailto:albert@moderndive.com">albert@moderndive.com</a> and Chester <a href="mailto:chester@moderndive.com">chester@moderndive.com</a></li>
+<li>We’re on Twitter at <a href="https://twitter.com/ModernDive">ModernDive</a>.</li>
+</ul>
+<p>If you would like to contribute to ModernDive, there are many ways! Let’s all work together to make this book as great as possible for as many students and instructors as possible!</p>
+<ul>
+<li>Please let us know if you find any errors, typos, or areas from improvement on our <a href="https://github.com/moderndive/moderndive_book/issues">GitHub issues</a> page.</li>
+<li>If you are familiar with GitHub and would like to contribute more, please see Section <a href="#sec:about-book">1.5</a> below.</li>
+</ul>
+<p>The authors would like to thank <a href="https://github.com/nsonneborn">Nina Sonneborn</a>, <a href="https://twitter.com/rhobott?lang=en">Kristin Bott</a>, and the participants of our <a href="https://www.causeweb.org/cause/uscots/uscots17/workshop/3">USCOTS 2017 workshop</a> for their feedback and suggestions. A special thanks goes to Prof. Yana Weinstein, cognitive psychological scientist and co-founder of <a href="http://www.learningscientists.org/yana-weinstein/">The Learning Scientists</a>, for her extensive contributions.</p>
+<hr />
+</div>
+<div id="sec:about-book" class="section level2">
+<h2><span class="header-section-number">1.5</span> 关于这本书</h2>
+<p>This book was written using RStudio’s <a href="https://bookdown.org/">bookdown</a> package by Yihui Xie <span class="citation">(Xie 2018)</span>. This package simplifies the publishing of books by having all content written in <a href="http://rmarkdown.rstudio.com/html_document_format.html">R Markdown</a>. The bookdown/R Markdown source code for all versions of ModernDive is available on GitHub:</p>
+<ul>
+<li><strong>Latest published version</strong> The most up-to-date release:
+<ul>
+<li>Version 0.4.0 released on July 21, 2018 (<a href="https://github.com/moderndive/moderndive_book/releases/tag/v0.4.0">source code</a>).</li>
+<li>Available at <a href="https://moderndive.com/">ModernDive.com</a></li>
+</ul></li>
+<li><strong>Development version</strong> The working copy of the next version which is currently being edited:
+<ul>
+<li>Preview of development version is available at <a href="https://moderndive.netlify.com/">https://moderndive.netlify.com/</a></li>
+<li>Source code: Available on ModernDive’s <a href="https://github.com/moderndive/moderndive_book">GitHub repository page</a></li>
+</ul></li>
+<li><strong>Previous versions</strong> Older versions that may be out of date:
+<ul>
+<li><a href="https://moderndive.com/previous_versions/v0.3.0">Version 0.3.0</a> released on February 3, 2018 (<a href="https://github.com/moderndive/moderndive_book/releases/tag/v0.3.0">source code</a>)</li>
+<li><a href="https://moderndive.com/previous_versions/v0.2.0">Version 0.2.0</a> released on August 02, 2017 (<a href="https://github.com/moderndive/moderndive_book/releases/tag/v0.2.0">source code</a>)</li>
+<li><a href="https://moderndive.com/previous_versions/v0.1.3">Version 0.1.3</a> released on February 09, 2017 (<a href="https://github.com/moderndive/moderndive_book/releases/tag/v0.1.3">source code</a>)</li>
+<li><a href="https://moderndive.com/previous_versions/v0.1.2">Version 0.1.2</a> released on January 22, 2017 (<a href="https://github.com/moderndive/moderndive_book/releases/tag/v0.1.2">source code</a>)</li>
+</ul></li>
+</ul>
+<p>Could this be a new paradigm for textbooks? Instead of the traditional model of textbook companies publishing updated <em>editions</em> of the textbook every few years, we apply a software design influenced model of publishing more easily updated <em>versions</em>. We can then leverage open-source communities of instructors and developers for ideas, tools, resources, and feedback. As such, we welcome your pull requests.</p>
+<p>Finally, feel free to modify the book as you wish for your own needs, but please list the authors at the top of <code>index.Rmd</code> as “Chester Ismay, Albert Y. Kim, and YOU!”</p>
+<hr />
+</div>
+<div id="sec:about-authors" class="section level2">
+<h2><span class="header-section-number">1.6</span> 关于作者</h2>
+<p>Who we are!</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Chester Ismay</th>
+<th align="center">Albert Y. Kim</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><img src="images/ismay.jpeg" alt="Drawing" style="height: 200px;"/></td>
+<td align="center"><img src="images/kim.jpeg" alt="Drawing" style="height: 200px;"/></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Chester Ismay: Data Science Curriculum Lead - DataCamp, Portland, OR, USA.
+<ul>
+<li>Email: <a href="mailto:chester@moderndive.com">chester@moderndive.com</a></li>
+<li>Webpage: <a href="http://ismayc.github.io/" class="uri">http://ismayc.github.io/</a></li>
+<li>Twitter: <a href="https://twitter.com/old_man_chester">old_man_chester</a></li>
+<li>GitHub: <a href="https://github.com/ismayc" class="uri">https://github.com/ismayc</a></li>
+</ul></li>
+<li>Albert Y. Kim: Assistant Professor of Statistical &amp; Data Sciences - Smith College, Northampton, MA, USA.
+<ul>
+<li>Email: <a href="mailto:albert@moderndive.com">albert@moderndive.com</a></li>
+<li>Webpage: <a href="http://rudeboybert.rbind.io/" class="uri">http://rudeboybert.rbind.io/</a></li>
+<li>Twitter: <a href="https://twitter.com/rudeboybert">rudeboybert</a></li>
+<li>GitHub: <a href="https://github.com/rudeboybert" class="uri">https://github.com/rudeboybert</a></li>
+</ul></li>
+</ul>
+<!--
+### Colophon 
+
+* ModernDive is written using the CC0 1.0 Universal License; more information on this license is available [here](https://creativecommons.org/publicdomain/zero/1.0/).
+* ModernDive uses the following versions of R packages (and their dependent packages):
+-->
+<div id="refs" class="references">
+<div>
+<p>Chihara, Laura M., and Tim C. Hesterberg. 2011. <em>Mathematical Statistics with Resampling and R</em>. Hoboken, NJ: John Wiley; Sons. <a href="https://sites.google.com/site/chiharahesterberg/home">https://sites.google.com/site/chiharahesterberg/home</a>.</p>
+</div>
+<div>
+<p>Diez, David M, Christopher D Barr, and Mine Çetinkaya-Rundel. 2014. <em>Introductory Statistics with Randomization and Simulation</em>. First Edition. <a href="https://www.openintro.org/stat/textbook.php?stat_book=isrs">https://www.openintro.org/stat/textbook.php?stat_book=isrs</a>.</p>
+</div>
+<div>
+<p>Grolemund, Garrett, and Hadley Wickham. 2016. <em>R for Data Science</em>. <a href="http://r4ds.had.co.nz/">http://r4ds.had.co.nz/</a>.</p>
+</div>
+<div>
+<p>Xie, Yihui. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</p>
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/moderndive/moderndive_book/edit/master/%s",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>
