@@ -1,4 +1,4 @@
-# Multiple Regression {#multiple-regression}
+# 多元回归 {#multiple-regression}
 
 ```{r, include=FALSE, purl=FALSE}
 chap <- 7
@@ -41,7 +41,7 @@ There are many modeling approaches one could take, among the most well-known bei
 Since our regression models will now consider more than one explanatory/predictor variable, the interpretation of the associated effect of any one explanatory/predictor variables must be made in conjunction with the others. For example, say we are modeling individuals' incomes as a function of their number of years of education and their parents' wealth. When interpreting the effect of education on income, one has to consider the effect of their parents' wealth at the same time, as these two variables are almost certainly related. Make note of this throughout this chapter and as you work on interpreting the results of multiple regression models into the future.
 
 
-### Needed packages {-}
+### 所需的 packages {-}
 
 Let's load all the packages needed for this chapter (this assumes you've already installed them). Read Section \@ref(packages) for information on how to install and load R packages.
 
@@ -73,7 +73,7 @@ The approach taken below of using more than one variable of information in model
 
 
 
-## Two numerical explanatory variables {#model3}
+## 二个数值型解释变量 {#model3}
 
 Let's now attempt to identify factors that are associated with how much credit card debt an individual will have. The textbook [An Introduction to Statistical Learning with Applications in R](http://www-bcf.usc.edu/~gareth/ISL/) by Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani is an intermediate-level textbook on statistical and machine learning freely available [here](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Seventh%20Printing.pdf). It has an accompanying R package called `ISLR` with datasets that the authors use to demonstrate various machine learning methods. One dataset that is frequently used by the authors is the `Credit` dataset where predictions are made on the credit card balance held by $n = 400$ credit card holders. These predictions are based on information about them like income, credit limit, and education level. Note that this dataset is not based on actual individuals, it is a simulated dataset used for educational purposes. 
 
@@ -92,7 +92,7 @@ In the forthcoming Learning Checks, we'll consider a different scenario:
     1. A second numerical explanatory variable $x_2$: their age.
 
 
-### Exploratory data analysis {#model3EDA}
+### 数据探索分析 {#model3EDA}
 
 Let's load the `Credit` data and `select()` only the needed subset of variables. 
 
@@ -310,7 +310,7 @@ What can you say about the relationship between a credit card holder's balance a
 ```
 
 
-### Multiple regression {#model3table}
+### 多元回归 {#model3table}
 
 Just as we did when we had a single numerical explanatory variable $x$ in Subsection \@ref(model1table) and when we had a single categorical explanatory variable $x$ in Subsection \@ref(model2table), we fit a regression model and obtained the regression table in our two numerical explanatory variable scenario. To fit a regression model and get a table using `get_regression_table()`, we now use a `+` to consider multiple explanatory variables. In this case since we want to perform a regression of `Limit` and `Income` simultaneously, we input `Balance ~ Limit + Income`.
 
@@ -355,7 +355,7 @@ This is known as Simpson's Paradox, a phenomenon in which a trend appears in sev
 ```
 
 
-### Observed/fitted values and residuals {#model3points}
+### 观察值,拟合值,残差 {#model3points}
 
 As we did previously in Table \@ref(tab:model3-points-table), let's unpack the output of the `get_regression_points()` function for our model for credit card balance for all `r nrow(Credit)` card holders in the dataset. Recall that each card holder corresponds to one of the `r nrow(Credit)` rows in the `Credit` data frame and also for one of the `r nrow(Credit)` 3D points in the 3D scatterplots in Subsection \@ref(model3EDA).
 
@@ -382,7 +382,7 @@ Recall the format of the output:
 * `residual` corresponds to $y - \widehat{y}$ (the residual)
 
 
-### Residual analysis {#model3residuals}
+### 残差分析 {#model3residuals}
 
 Recall in Section \@ref(model1residuals), our first residual analysis plot investigated the presence of any systematic pattern in the residuals when we had a single numerical predictor: `bty_age`. For the `Credit` card dataset, since we have two numerical predictors, `Limit` and `Income`, we must perform this twice:
 
@@ -431,7 +431,7 @@ Another way to interpret this histogram is that since the residual is computed a
 
 
 
-## One numerical & one categorical explanatory variable {#model4}
+## 一个数值型 和一个类别型解释变量 {#model4}
 
 Let's revisit the instructor evaluation data introduced in Section \@ref(model1), where we studied the relationship between instructor evaluation scores and their beauty scores. This analysis suggested that there is a positive relationship between `bty_avg` and `score`, in other words as instructors had higher beauty scores, they also tended to have higher teaching evaluation scores. Now let's say instead of `bty_avg` we are interested in the numerical explanatory variable $x_1$ `age` and furthermore we want to use a second explanatory variable $x_2$, the (binary) categorical variable `gender`. 
 
@@ -445,7 +445,7 @@ Our modeling scenario now becomes
     1. A categorical explanatory variable $x_2$: in this case, their binary gender.
 
 
-### Exploratory data analysis {#model4EDA}
+### 数据探索分析 {#model4EDA}
 
 Let's reload the `evals` data and `select()` only the needed subset of variables. Note that these are different than the variables chosen in Chapter 6. Let's given this the name `evals_ch7`.
 
@@ -505,7 +505,7 @@ We notice some interesting trends:
 
 
 
-### Multiple regression: Parallel slopes model {#model4table}
+### 多元回归: 平行斜率模型 {#model4table}
 
 Much like we started to consider multiple explanatory variables using the `+` sign in Subsection \@ref(model3table), let's fit a regression model and get the regression table. This time we provide the name of `score_model_2` to our regression model fit, in so as to not overwrite the model `score_model` from Section \@ref(model1table). 
 
@@ -563,7 +563,7 @@ that men get *relative to the baseline of women*.
 But wait, why is Figure \@ref(fig:numxcatxplot2) different than Figure \@ref(fig:numxcatxplot1)! What is going on? What we have in the original plot is known as an *interaction effect* between age and gender. Focusing on fitting a model for each of men and women, we see that the resulting regression lines are different. Thus, `gender` appears to interact in different ways for men and women with the different values of `age`.
 
 
-### Multiple regression: Interaction model {#model4interactiontable}
+### 多元回归：交互模型 {#model4interactiontable}
 
 We say a model has an *interaction effect* if the associated effect of one variable *depends on the value of another variable*. These types of models usually prove to be tricky to view on first glance because of their complexity. In this case, the effect of `age` will depend on the value of `gender`. Put differently, the effect of age on teaching scores will differ for men and for women, as was suggested by the different slopes for men and women in our visual exploratory data analysis in Figure \@ref(fig:numxcatxplot1).
 
@@ -633,7 +633,7 @@ We see that while male instructors have a lower intercept, as they age, they hav
 
 But how do we know when it's appropriate to include an interaction effect? For example, which is the more appropriate model? The regular multiple regression model without an interaction term we saw in Section \@ref(model4table) or the multiple regression model with the interaction term we just saw? We'll revisit this question in Chapter \@ref(inference-for-regression) on "inference for regression."
 
-### Observed/fitted values and residuals {#model4points}
+### 观察值,拟合值,残差 {#model4points}
 
 Now say we want to apply the above calculations for male and female instructors for all `r nrow(evals_ch7)` instructors in the `evals_ch7` dataset. As our multiple regression models get more and more complex, computing such values by hand gets more and more tedious. The `get_regression_points()` function spares us this tedium and returns all fitted values and all residuals. For simplicity, let's focus only on the fitted interaction model, which is saved in `score_model_interaction`.
 
@@ -661,7 +661,7 @@ Recall the format of the output:
 
 
 
-### Residual analysis {#model4residuals}
+### 残差分 {#model4residuals}
 
 As always, let's perform a residual analysis first with a histogram, which we can facet by `gender`:
 
@@ -688,9 +688,9 @@ ggplot(regression_points, aes(x = age, y = residual)) +
 
 
 
-## Related topics
+## 其他内容
 
-### More on the correlation coefficient {#correlationcoefficient2}
+### 更多相关系数的内容 {#correlationcoefficient2}
 
 Recall from Table \@ref(tab:model3-correlation) that we saw the correlation
 coefficient between `Income` in thousands of dollars and credit card `Balance`
@@ -727,7 +727,7 @@ transformations! In other words,
 * the correlation between $a\times x + b$ and $y$ where $a$ and $b$ are numerical values (real numbers in mathematical terms).
 
 
-### Simpson's Paradox {#simpsonsparadox}
+### 辛普森的悖论(Simpson's Paradox) {#simpsonsparadox}
 
 Recall in Section \@ref(model3), we saw the two following seemingly contradictory results when studying the relationship between credit card balance, credit limit, and income. On the one hand, the right hand plot of Figure \@ref(fig:2numxplot1) suggested that credit card balance and income were positively related:
 
@@ -807,9 +807,9 @@ ggplot(Credit, aes(x = Income, y = Balance)) +
 --> 
 
 
-## Conclusion
+## 结论
 
-### What's to come?
+### 本书后面的内容?
 
 Congratulations! We're ready to proceed to the third portion of this book: "statistical inference" using a new package called `infer`.  Once we've covered Chapters \@ref(sampling) on sampling, \@ref(confidence-intervals) on confidence intervals, and \@ref(hypothesis-testing) on hypothesis testing, we'll come back to the models we've seen in "data modeling" in Chapter \@ref(inference-for-regression) on inference for regression. As we said at the end of Chapter \@ref(regression), we'll see why we've been conducting the residual analyses from Subsections \@ref(model3residuals) and \@ref(model4residuals). We are actually verifying some very important assumptions that must be met for the `std_error` (standard error), `p_value`, `conf_low` and `conf_high` (the end-points of the confidence intervals) columns in our regression tables to have valid interpretation. 
 
@@ -817,7 +817,8 @@ Up next:
 
 <center><img src="images/flowcharts/flowchart/flowchart.006.png" title="ModernDive flowchart" width="800"/></center>
 
-### Script of R code
+### R代码
 
-An R script file of all R code used in this chapter is available [here](https://moderndive.com/scripts/07-multiple-regression.R).
+本章节《基本回归分析》的所有代码:
+[here](https://moderndive.com/scripts/07-multiple-regression.R).
 
