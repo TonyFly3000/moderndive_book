@@ -99,7 +99,7 @@ The introductory basic regression analysis below was the inspiration for a large
 </center>
 
 
-## 单个数值型变量 {#model1}
+## 单个数值型解释变量 {#model1}
 
 Why do some professors and instructors at universities and colleges get high teaching evaluations from students while others don't? What factors can explain these differences? Are there biases? These are questions that are of interest to university/college administrators, as teaching evaluations are among the many criteria considered in determining which professors and instructors should get promotions. Researchers at the University of Texas in Austin, Texas (UT Austin) tried to answer this question: what factors can explain differences in instructor's teaching evaluation scores? To this end, they collected information on $n = 463$ instructors. A full description of the study can be found at [openintro.org](https://www.openintro.org/stat/data/?data=evals).
 
@@ -633,14 +633,8 @@ mean 0. In other words, be bell-shaped and centered at 0! While this requirement
 
 
 
- 
 
-
-
-
-
-
-## 单个类别型变量 {#model2}
+## 单个类别型解释变量 {#model2}
 
 It's an unfortunate truth that life expectancy is not the same across various countries in the world; there are a multitude of factors that are associated with how long people live. International development agencies are very interested in studying these differences in the hope of understanding where governments should allocate resources to address this problem. In this section, we'll explore differences in life expectancy in two ways:
 
@@ -1300,9 +1294,11 @@ If you're even more curious, take a look at the source code for these functions 
 
 ## 结论
 
-In this chapter, you've seen what we call "basic regression" when you only have one explanatory variable. In Chapter \@ref(multiple-regression), we'll study *multiple regression* where we have more than one explanatory variable! In particular, we'll see why we've been conducting the residual analyses from Subsections {#model1residuals} and {#model2residuals}. We are actually verifying some very important assumptions that must be met for the `std_error` (standard error), `p_value`, `lower_ci` and `upper_ci` (the end-points of the confidence intervals) columns in our regression tables to have valid interpretation. Again, don't worry for now if you don't understand what these terms mean. After the next chapter on multiple regression, we'll dive in!  
+在本章节中，你学习到了当只有一个解释变量的“基本回归分析”。在“多元回归分析”中，我们将学习多个解释变量。特别是，我们将学习为什么要做残差分析。其实我们在验证一些非常重要的假设。只有当这些假设成立时，在回归结果表中的std_error (标准误差), p_value, lower_ci and upper_ci (
+置信区间) 才能构成有效的解释。如果目前您好不了解，无需担心。我们将在下一节中进行讲解。
 
 
-### Script of R code
+### R代码
 
-An R script file of all R code used in this chapter is available [here](https://moderndive.com/scripts/06-regression.R).
+本章节《基本回归分析》的所有代码:
+[here](https://moderndive.com/scripts/06-regression.R).
